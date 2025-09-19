@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Light</title>
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <header class="hdr">
+    <img src="icons/icon48.png" width="24" height="24" alt="Light"/>
+    <h1>Light</h1>
+  </header>
+
+  <div class="tabs">
+    <button id="tabPage" class="tab active">Analizar página</button>
+    <button id="tabPaste" class="tab">Pegar texto</button>
+  </div>
+
+  <section id="pagePanel" class="panel active">
+    <p class="muted sm">Analiza el texto de esta pestaña (cuerpo de la página).</p>
+    <div class="row">
+      <button id="analyzePage" class="btn primary">Analizar esta página</button>
+      <button id="highlightPage" class="btn">Resaltar en página</button>
+      <button id="clearHighlights" class="btn">Quitar resaltado</button>
+    </div>
+    <p id="pageStatus" class="muted sm"></p>
+  </section>
+
+  <section id="pastePanel" class="panel">
+    <textarea id="jobInput" rows="8" class="input" placeholder="Pega aquí el texto de la oferta..."></textarea>
+    <div class="row">
+      <select id="seniority" class="select">
+        <option value="auto">Seniority (auto)</option>
+        <option value="junior">Junior</option>
+        <option value="mid">Mid</option>
+        <option value="senior">Senior</option>
+      </select>
+      <select id="location" class="select">
+        <option value="auto">Ubicación (auto)</option>
+        <option value="madrid">Madrid</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="remote-es">Remoto (España)</option>
+        <option value="other">Otra</option>
+      </select>
+    </div>
+    <button id="analyzeText" class="btn primary">Analizar texto pegado</button>
+  </section>
+
+  <section id="results" class="results">
+    <div class="block">
+      <h2>Riesgo <span id="riskScore" class="badge">—</span></h2>
+      <ul id="riskTags" class="tags"></ul>
+    </div>
+    <div class="block">
+      <h2>Salario <span id="salaryRange" class="badge">—</span></h2>
+      <p id="salaryExplain" class="muted sm"></p>
+    </div>
+  </section>
+
+  <footer class="muted xs">POC heurístico. © iaxperience — Light</footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
